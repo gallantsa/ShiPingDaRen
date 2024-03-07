@@ -9,9 +9,9 @@ spring:
     username: root
     password: hsp
   redis:
-    host: 192.168.10.138
+    host: 127.0.0.1
     port: 6379
-    password: 123321
+    password: hsp
     lettuce:
       pool:
         max-active: 10
