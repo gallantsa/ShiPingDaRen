@@ -12,11 +12,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * 上传
+ */
 @Slf4j
 @RestController
 @RequestMapping("upload")
 public class UploadController {
 
+    /**
+     * 上传图片
+     * @param image
+     * @return
+     */
     @PostMapping("blog")
     public Result uploadImage(@RequestParam("file") MultipartFile image) {
         try {
@@ -34,6 +42,11 @@ public class UploadController {
         }
     }
 
+    /**
+     * 删除图片
+     * @param filename
+     * @return
+     */
     @GetMapping("/blog/delete")
     public Result deleteBlogImg(@RequestParam("name") String filename) {
         File file = new File(SystemConstants.IMAGE_UPLOAD_DIR, filename);

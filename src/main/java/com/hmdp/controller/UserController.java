@@ -17,12 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 /**
- * <p>
- * 前端控制器
- * </p>
- *
- * @author 虎哥
- * @since 2021-12-22
+ * 用户
  */
 @Slf4j
 @RestController
@@ -78,6 +73,11 @@ public class UserController {
         return Result.ok(user);
     }
 
+    /**
+     * 更新用户信息
+     * @param userId
+     * @return
+     */
     @GetMapping("/info/{id}")
     public Result info(@PathVariable("id") Long userId){
         // 查询详情
@@ -95,6 +95,11 @@ public class UserController {
 
 // UserController 根据id查询用户
 
+    /**
+     * 根据id查询用户
+     * @param userId
+     * @return
+     */
     @GetMapping("/{id}")
     public Result queryUserById(@PathVariable("id") Long userId){
         // 查询详情
@@ -107,11 +112,19 @@ public class UserController {
         return Result.ok(userDTO);
     }
 
+    /**
+     * 签到
+     * @return
+     */
     @PostMapping("/sign")
     public Result sign(){
         return userService.sign();
     }
 
+    /**
+     * 签到统计
+     * @return
+     */
     @GetMapping("/sign/count")
     public Result signCount(){
         return userService.signCount();

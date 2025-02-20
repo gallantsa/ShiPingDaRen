@@ -11,12 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author 虎哥
- * @since 2021-12-22
+ * 优惠券订单
  */
 @RestController
 @RequestMapping("/voucher-order")
@@ -25,6 +20,11 @@ public class VoucherOrderController {
     @Resource
     private IVoucherOrderService voucherOrderService;
 
+    /**
+     * 秒杀优惠券
+     * @param voucherId
+     * @return
+     */
     @PostMapping("seckill/{id}")
     public Result seckillVoucher(@PathVariable("id") Long voucherId) {
         return voucherOrderService.seckillVoucher(voucherId);
